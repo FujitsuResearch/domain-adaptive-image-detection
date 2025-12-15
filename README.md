@@ -1,8 +1,9 @@
+<img src="images/poster.jpg" alt="CLIDE" style="width:100%; max-width:100%; height:auto;" />
+
 # 🔍 General and Domain-Specific Zero-shot Detection of Generated Images via Conditional Likelihood
 
-**📄 Paper:** [link coming soon](#) (WACV poster).
+📄 [Paper](https://arxiv.org/abs/2512.05590) (WACV 2026) • 🗂️ [Dataset](https://huggingface.co/datasets/Fujitsu-FRE/clide_synthetic_datasets) • 🌐 [Webpage](https://rbetser.github.io/CLIDE/) • 🎥 Video (coming soon)
 
-**🎥 YouTube:** [link coming soon](#).
 
 This repository contains the official implementation of CLIDE, a zero-shot detection method for identifying AI-generated images using a **conditional likelihood approximation** over CLIP embeddings.
 The method applies a whitening transform to CLIP image embeddings and uses the resulting (approximate) Gaussian likelihood as a detection score — **without training on generated images**.
@@ -159,11 +160,18 @@ You can point `--rep_mat_path` or `--w_mat_path` directly to these files to reus
 
 ---
 
-## 🧪 Synthetic Datasets
+## 📚 Citation
 
-The **damaged cars synthetic dataset** is available at: [link coming soon](#).
-
-The **invoice synthetic dataset** is available at: [link coming soon](#).
+```bibtex
+@inproceedings{betser2026clide,
+  title     = {General and Domain-Specific Zero-shot Detection of Generated Images via Conditional Likelihood},
+  author    = {Betser, Roy and Hofman, Omer and Vainshtein, Roman and Gilboa, Guy},
+  booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  year      = {2026},
+  eprint    = {2512.05590},
+  archivePrefix = {arXiv},
+}
+```
 
 ---
 
