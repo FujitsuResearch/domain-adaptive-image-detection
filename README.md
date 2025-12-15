@@ -1,4 +1,4 @@
-<img src="images/poster.jpg" alt="CLIDE" style="width:100%; max-width:100%; height:auto;" />
+<img src="poster.jpg" alt="CLIDE" style="width:100%; max-width:100%; height:auto;" />
 
 # 🔍 General and Domain-Specific Zero-shot Detection of Generated Images via Conditional Likelihood
 
@@ -186,4 +186,5 @@ Commercial use is strictly prohibited. Patent rights are fully reserved.
 Copyright © 2025  
 **Fujitsu Research of Europe (FRE)**  
 All rights reserved.
+
 
