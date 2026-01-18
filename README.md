@@ -160,6 +160,53 @@ You can point `--rep_mat_path` or `--w_mat_path` directly to these files to reus
 
 ---
 
+## 🔬 ZED Unofficial Implementation
+
+This repository also includes an **unofficial implementation of the [ZED method](https://link.springer.com/chapter/10.1007/978-3-031-72649-1_4)**, provided for **research comparison and reproducibility purposes**.
+
+ZED is a zero-shot generated image detection approach that has been referenced in our paper and, at the time of writing, **does not have an official public implementation**.  
+
+To support community experimentation and reproducibility, we provide an unofficial re-implementation of the ZED method.
+The implementation is largely based on the [SReC compression model](https://arxiv.org/abs/2004.02872), for which an official and publicly available [implementation exists](https://github.com/caoscott/SReC).
+We attempt to follow the original ZED paper as closely as possible, while adding the detection-specific score computation on top of the compression framework.
+
+### 📁 Implementation Structure and Usage
+
+```text
+ZED_method/
+├── zed_utils.py
+└── zed_criterion.py
+```
+
+- **`zed_utils.py`**  
+  Contains utility functions and model components used by the ZED criterion.  
+  The majority of this file is adapted from the official **SReC** implementation, with minor modifications required for detection scoring.
+
+- **`zed_criterion.py`**  
+  Provides the main ZED evaluation logic and exposes two entry points:
+
+  **1. Standalone execution (`main`)**  
+  The `main` function evaluates a directory of images and computes the four ZED detection criteria per image:
+  - D_0, |D_0|, \Delta_{0,1}, |\Delta_{0,1}|.
+
+  It takes as input:
+  - A path to a directory containing images - `--images_dir`
+  - An optional output file path for saving the computed scores - `--output_path`
+
+  **2. Pipeline integration (`factory_zed_criterion`)**  
+  The `factory_zed_criterion` function (with an image-loading helper) returns a callable that accepts a list of image paths and produces per-image ZED scores.  
+  This interface is intended for integration into external evaluation pipelines and benchmarking code.
+
+📌 **Requirement:**
+
+A pre-trained compression model `openimages.pth` is required and can be downloaded from the [SReC repo](https://github.com/caoscott/SReC).
+  
+⚠️ **Important:**  
+1. This code is **not affiliated with, endorsed by, or released by the original ZED authors**.
+2. All original credit for the compression model belongs to the **SReC authors**.
+
+---
+
 ## 📚 Citation
 
 ```bibtex
@@ -186,5 +233,4 @@ Commercial use is strictly prohibited. Patent rights are fully reserved.
 Copyright © 2025  
 **Fujitsu Research of Europe (FRE)**  
 All rights reserved.
-
 
